@@ -56,6 +56,23 @@ for(let i = 1; i <= 30; i++) {
     }
 }
 
+// Task-7
+
+for(let i = 1; i <= 50; i++) {
+    let isPrime = true;
+
+    for(let j = 2; j <= Math.sqrt(i); j++) {
+        if(i % j === 0) {
+            isPrime = false;
+            break;
+        }
+    }
+
+    if(isPrime) {
+        console.log(i);
+    }
+}
+
 //  Task-8
 
 for (let i = 1; i <= 5; i++) {
