@@ -25,17 +25,19 @@ function findMaxAndMin(arr) {
     return { max, min };
 }
 
+// Task-3
+
 const { max, min } = findMaxAndMin([10, 20, 30, 40, 50]);
 console.log(`Max: ${max}, Min: ${min}`);
 
-// Task-3
+// Task-4
 
 const nums = [1, 2, 3, 4]
 
 const squaredNums = nums.map(num => num * num);
 console.log(squaredNums);
 
-// Task-4
+// Task-5
 
 function reverseString(str) {
     let reversed = str.split("");
@@ -45,7 +47,7 @@ function reverseString(str) {
 
 console.log(reverseString("Hello"));
 
-// Task-5
+// Task-6
 
 function isPalindrome(str) {
     const reveredStr = reverseString(str);
@@ -63,7 +65,7 @@ function isPalindrome(str) {
 
 console.log(isPalindrome("madam"));
 
-// Task-6
+// Task-7
 
 function removeDuplicates(arr) {
     const uniqueArr = [];
