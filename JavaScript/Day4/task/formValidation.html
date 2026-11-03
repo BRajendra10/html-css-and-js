@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Day-4 Tasks</title>
+
+    <style>
+        body {
+            background: whitesmoke;
+        }
+
+        form {
+            width: 400px;
+            height: fit-content;
+            background: white;
+            box-shadow: 2px 2px 5px lightgray;
+            border: 1px solid lightgray;
+            padding: 1rem;
+            border-radius: 0.5rem;
+
+            h2 {
+                text-align: center;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                gap: 0.3em;
+
+                input {
+                    padding: 0.5em;
+                    border: 1px solid lightgray;
+                    border-radius: 0.5em;
+                }
+            }
+
+            button {
+                padding: 0.7em;
+                margin-top: 1em;
+                border: none;
+                border-radius: 0.5em;
+                background-color: rebeccapurple;
+                color: white;
+                cursor: pointer;
+                font-size: 0.8em;
+                text-transform: uppercase;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <form>
+        <h2>Registration</h2>
+
+        <div>
+            <label>Name</label>
+            <input type="name" placeholder="Enter your full name" id="name" name="name" />
+            <span class="error-name"></span>
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email" id="email" name="email" />
+            <span class="error-email"></span>
+        </div>
+
+        <div>
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" id="password" name="password" />
+            <span class="error-password"></span>
+        </div>
+
+        <button id="submit-btn" type="submit">Submit</button>
+    </form>
+
+    <script>
+        const name_input = document.querySelector("#name");
+        const email_input = document.querySelector("#email");
+        const password_input = document.querySelector("#password");
+        const submit_btn = document.querySelector("#submit-btn");
+        const name_error = document.querySelector(".error-name");
+        const email_error = document.querySelector(".error-email");
+        const password_error = document.querySelector(".error-password");
+
+        submit_btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            if (name_input.value === "" && email_input.value === "" && password_input.value === "") {
+                name_error.innerHTML = "Name is required";
+                email_error.innerHTML = "Email is required";
+                password_error.innerHTML = "Password is required";
+                return;
+            } else if (name_input.value === "") {
+                name_error.innerHTML = "Name is required";
+                return;
+            } else if (email_input.value === "") {
+                email_error.innerHTML = "Email is required";
+                return;
+            } else if (password_input.value === "") {
+                password_error.innerHTML = "Password is required";
+                return;
+            }
+
+            if(!email_input.value.includes("@")) {
+                email_error.innerHTML = "Invalid email";
+                return;
+            }
+
+            if(password_input.value.length < 6) {
+                password_error.innerHTML = "Password must be at least 6 characters";
+                return;
+            }
+
+            const credentials = {
+                name: name_input.value,
+                email: email_input.value,
+                password: password_input.value
+            }
+
+            console.log(credentials);
+
+            name_input.value = "";
+            email_input.value = "";
+            password_input.value = "";
+            name_error.innerHTML = "";
+            email_error.innerHTML = "";
+            password_error.innerHTML = "";
+        })
+    </script>
+</body>
+
+</html>

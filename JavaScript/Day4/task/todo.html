@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Day-4 Tasks</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        form {
+            margin: 1em;
+            display: flex;
+            justify-content: flex-start;
+            gap: 0.5em;
+
+            input {
+                padding: 0.5em;
+                border: 1px solid lightgray;
+                outline: none;
+                border-radius: 0.3em;
+            }
+
+            button {
+                padding: 0.5em 1em;
+                border: none;
+                border-radius: 0.3em;
+                cursor: pointer;
+                background: rebeccapurple;
+                color: white;
+            }
+        }
+
+        .lists {
+            background: whitesmoke;
+            padding: 1em;
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+        }
+
+        .task {
+            width: 250px;
+            height: fit-content;
+            background: white;
+            border: 1px solid lightgray;
+            border-radius: 0.5em;
+            padding: 0.5em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+
+            span.done {
+                color: gray;
+                text-decoration: line-through;
+            }
+
+            .btns {
+                display: flex;
+                justify-content: flex-end;
+                gap: 0.5em
+            }
+
+            .btns button {
+                padding: 0.5em;
+                border: none;
+                border-radius: 0.5em;
+                cursor: pointer;
+            }
+
+            button.edit_btn {
+                background: lightgreen;
+            }
+
+            button.delete_btn {
+                background: lightcoral;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <form>
+        <input type="text" placeholder="Enter your task" id="task" name="task">
+        <button type="submit" id="add">Add</button>
+    </form>
+
+    <div class="lists">
+        <!-- Tasks list -->
+    </div>
+
+
+    <script>
+        const task = document.querySelector("#task");
+        const btn = document.querySelector("#add");
+        const lists = document.querySelector(".lists");
+
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        ;(() => {
+            renderTasks();
+        })();
+
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            if(task.value === "") {
+                alert("Task is required");
+                return;
+            }
+
+            const id = tasks.length;
+            tasks.push({
+                id,
+                task: task.value,
+                done: false
+            })
+
+            const newTask = createTask(id, task.value, false);
+            lists.appendChild(newTask);
+
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        })
+
+        function removeTask(task_index) {
+            tasks = tasks.filter((_, index) => index !== task_index);
+
+            renderTasks();
+        }
+
+        function editTask(task_index) {
+            const taskValue = tasks[task_index].task;
+            task.value = taskValue;
+
+            removeTask(task_index);
+        }
+
+        function toggleTask(task_index) {
+            const task_eliment = document.querySelector(`#task${task_index}`);
+            task_eliment.classList.toggle("done");
+
+            tasks[task_index].done = !tasks[task_index].done
+        }
+
+        function renderTasks() {
+            lists.innerHTML = "";
+            for(let i = 0; i < tasks.length; i++) {
+                const { id, task, done } = tasks[i];
+                const newTask = createTask(id, task, done);
+                lists.appendChild(newTask);
+            }
+        }
+
+        function createTask(index, task, done) {
+            const newTask = document.createElement("div");
+            newTask.classList.add("task");
+            newTask.innerHTML = `
+                <div>
+                    <input type="checkbox" onChange="toggleTask(${index})" />
+                    <span id='task${index}' ${done ? "class='done'" : ""}>${task}</span>
+                </div>
+                <div class="btns">
+                    <button class="edit_btn" onClick="editTask(${index})"><i class="ri-pencil-fill"></i></button>
+                    <button class="delete_btn" onClick="removeTask(${index})"><i class="ri-delete-bin-5-fill"></i></button>
+                </div>
+            `
+
+            return newTask
+        }
+    </script>
+</body>
+</html>

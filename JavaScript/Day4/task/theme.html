@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Day-4 tasks</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        button {
+            padding: 0.5em;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+
+        .dark {
+            background: black;
+            color: white;
+
+            i {
+                color: gold;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn light">
+        <!-- <i class="ri-sun-fill"></i> -->
+        <i class="ri-moon-fill"></i>
+    </button>
+    
+
+    <script>
+        const btn = document.querySelector(".btn");
+
+        btn.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+            btn.classList.toggle("light");
+
+            if(btn.classList.contains("light")) {
+                btn.innerHTML = '<i class="ri-moon-fill"></i>';
+            } else {
+                btn.innerHTML = '<i class="ri-sun-fill"></i>';
+            }
+        });
+    </script>
+</body>
+</html>
