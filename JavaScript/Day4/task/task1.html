@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Day-4 Tasks</title>
+
+    <style>
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h1 class="red">Heading</h1>
+
+        <button class="btn">Click</button>
+    </div>
+
+    <script>
+        const btn = document.querySelector(".btn");
+        const heading = document.querySelector("h1");
+        const colors = ["red", "blue", "green"];
+
+        btn.addEventListener("click", (e) => {
+            if (heading.classList.contains(colors[0])) {
+                heading.classList.remove(colors[0]);
+                heading.classList.add(colors[1]);
+            } else if (heading.classList.contains(colors[1])) {
+                heading.classList.remove(colors[1]);
+                heading.classList.add(colors[2]);
+            } else if (heading.classList.contains(colors[2])) {
+                heading.classList.remove(colors[2]);
+                heading.classList.add(colors[0]);
+            }
+        })
+    </script>
+</body>
+</html>

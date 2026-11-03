@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Day-4 Tasks3</title>
+
+    <style>
+        div {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+
+            button {
+                padding: 10px;
+            }
+
+            span {
+                padding: 10px;
+                font-weight: bold;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <button id="increment">Increment</button>
+        <span id="counter">0</span>
+        <button id="decrement">Decrement</button>
+    </div>
+
+    <script>
+        const increment = document.getElementById("increment");
+        const decrement = document.getElementById("decrement");
+        const counter = document.getElementById("counter");
+
+        let count = 0;
+
+        increment.addEventListener("click", () => {
+            count++;
+            counter.innerText = count;
+        });
+
+        decrement.addEventListener("click", () => {
+            if(count === 0) return;
+            count--;
+            counter.innerText = count;
+        });
+    </script>
+</body>
+</html>
