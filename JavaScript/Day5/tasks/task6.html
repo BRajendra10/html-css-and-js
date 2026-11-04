@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Day5 - Task6</title>
+
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+        }
+
+        body {
+            background: whitesmoke;
+        }
+
+        .container {
+            width: 440px;
+            height: fit-content;
+            margin: 1em;
+            padding: 1.5em;
+            border-radius: 1em;
+            background: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: end;
+            gap: 1em;
+
+            .box {
+                width: 100%;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+
+                p, span {
+                    font-size: 1.3rem;
+                    text-align: center;
+                }
+            }
+
+            button {
+                padding: 0.8em 1em;
+                border-radius: 0.5em;
+                border: none;
+                background-color: rebeccapurple;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <p class="setup">What do you call a pile of cats?</p>
+            <span class="punchline">A Meowtain.</span>
+        </div>
+
+        <button>New Joke</button>
+    </div>
+
+    <script>
+        const setup = document.querySelector(".setup");
+        const punchline = document.querySelector(".punchline");
+        const btn = document.querySelector("button");
+
+        ;(() => {
+            getNewJoke();
+        })();
+
+        btn.addEventListener("click", () => getNewJoke())
+
+        async function getNewJoke() {
+            try {
+                const res = await fetch("https://official-joke-api.appspot.com/random_joke");
+                const data = await res.json();
+
+                console.log(data)
+                setup.innerText = data.setup;
+                punchline.innerText = data.punchline;
+            } catch (err) {
+                console.log("Error: ", err.message);
+            }
+        }
+    </script>
+</body>
+
+</html>

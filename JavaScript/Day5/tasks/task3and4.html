@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day5 - Task2</title>
+
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Posts</h1>
+    <span class="status"></span>
+    <ul class="list">
+        <!-- <li></li> -->
+    </ul>
+
+    <script>
+        const list = document.querySelector(".list");
+        const status = document.querySelector(".status");
+        let posts = null;
+        let posts_chunk = null;
+
+        ; (async () => {
+            try {
+                status.innerText = "Status: Loading...";
+                const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+                posts = await res.json();
+
+                posts_chunk = posts.slice(0, 10);
+                renderUsers(posts_chunk);
+
+                status.innerText = "Status: success";
+            } catch (err) {
+                status.innerText = `Status: Error: ${err}`;
+                console.log("Error: ", err);
+            }
+        })();
+
+        function renderUsers(posts) {
+            posts.forEach((post) => {
+                const li = document.createElement("li");
+                li.innerText = post.title;
+                list.appendChild(li);
+            })
+        }
+    </script>
+</body>
+</html>

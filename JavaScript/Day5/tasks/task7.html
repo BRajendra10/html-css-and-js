@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Day5 - Task7</title>
+
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: whitesmoke;
+        }
+
+        .container {
+            margin: 1em;
+            padding: 1.5em;
+            background: white;
+            border-radius: 1em;
+
+            .info {
+                display: flex;
+                gap: 1em;
+                margin-bottom: 1em;
+                
+                span {
+                    padding: 0.3em 1em;
+                    border-radius: 0.5em;
+                    background: lightgray;
+                    color: black;
+                }
+            }
+
+            div > ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                margin-top: 0.5em;
+
+                li {
+                    list-style-type: none;
+                    padding: 0.3em 1em;
+
+                    &:hover {
+                        cursor: pointer;
+                        background: lightgray;
+                    }   
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="info">
+           
+        </div>
+        <div>
+            <h4>Popular cities</h4>
+            <ul>
+                <li class="active" onclick="getWhether(21.17, 72.83, 'Surat')">Surat</li>
+                <li onclick="getWhether(51.507351, -0.127758, 'London')">London</li>
+                <li onclick="getWhether(35.6895, 139.69171, 'Tokyo')">Tokyo</li>
+                <li onclick="getWhether(48.8566, 2.3522, 'Paris')">Paris</li>
+                <li onclick="getWhether(40.7128, -74.0060, 'New York City')">New York City</li>
+                <li onclick="getWhether(37.7749, -122.4194, 'San Francisco')">San Francisco</li>
+                <li onclick="getWhether(34.0522, -118.2437, 'Los Angeles')">Los Angeles</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const info = document.querySelector(".info");
+        let active = document.getElementById("active");
+
+        ; (() => {
+            getWhether(21.17, 72.83, "surat");
+        })();
+
+        async function getWhether(latitude, longitude, city) {
+            try {
+                const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
+                const data = await res.json();
+                showWhetherInfo(data?.current_weather, city);
+            } catch (err) {
+                console.log("Error: ", err.message);
+            }
+        }
+
+        function showWhetherInfo(data, city) {
+            info.innerText = "";
+            for(let key in data) {
+                const span = document.createElement("span");
+                span.innerText = `${key}: ${data[key]}`;
+
+                info.appendChild(span)
+            }
+
+            alert(`${city} whether fetched successfully`);
+        }
+    </script>
+</body>
+
+</html>
