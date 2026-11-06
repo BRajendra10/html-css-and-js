@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,35 +9,56 @@
     <!-- CSS linked -->
     <link rel="stylesheet" href="style.css">
     <!-- Remixicon CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
+
 <body>
-    
+
 
     <main>
         <nav>
+            <select name="cityes" id="cityes">
+                <!-- <option value="">Select Last Searched City</option>
+                <option value="surat">Surat</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Tokyo">Tokyo</option>
+                <option value="Pune">Pune</option> -->
+            </select>
             <div class="search">
                 <input type="text" placeholder="Enter City Name" spellcheck="false">
-                <button><i class="ri-search-line"></i></button>
+                <button class="search-btn"><i class="ri-search-line"></i></button>
             </div>
         </nav>
         <div class="container">
+            <span class="status-flag" id="status-flag"></span>
             <aside>
                 <div class="location">
                     <i class="ri-map-pin-2-fill"></i>
-                    <span>Surat</span>
+                    <span id="location">Surat</span>
                 </div>
                 <div class="current-weather">
                     <i class="ri-sun-fill"></i>
-                    <span class="head">29.18°C</span>
-                    <span class="sub-head">Clear sky</span>
+                    <span class="head" id="temprature">29.18°C</span>
+                    <!-- <span class="sub-head">Clear sky</span> -->
                 </div>
                 <div class="wind-info">
-                    <div><i class="ri-windy-line"></i> <span class="head">18 km/h</span><span class="sub-head">wind speed</span></div>
-                    <div><i class="ri-arrow-right-double-line"></i> <span class="head">0%</span><span class="sub-head">wind direction</span></div>
+                    <div>
+                        <i class="ri-windy-line"></i> 
+                        <span class="head" id="windspeed">18 km/h</span>
+                        <span class="sub-head">windspeed</span>
+                    </div>
+                    <div>
+                        <i class="ri-arrow-right-double-line"></i> 
+                        <span class="head" id="winddirection">0%</span>
+                        <span class="sub-head">wind direction</span>
+                    </div>
                 </div>
                 <div class="elevation">
-                    <span class="head">17m </span class="sub-head"><span>Elevation</span>
+                    <span class="head" id="elevation">17m </span>
+                    <span class="sub-head">Elevation</span>
                 </div>
             </aside>
         </div>
@@ -45,4 +67,5 @@
     <!-- JS linked -->
     <script src="script.js"></script>
 </body>
+
 </html>
