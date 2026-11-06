@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+
+    <!-- CSS linked -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Remixicon CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    
+
+    <main>
+        <nav>
+            <div class="search">
+                <input type="text" placeholder="Enter City Name" spellcheck="false">
+                <button><i class="ri-search-line"></i></button>
+            </div>
+        </nav>
+        <div class="container">
+            <aside>
+                <div class="location">
+                    <i class="ri-map-pin-2-fill"></i>
+                    <span>Surat</span>
+                </div>
+                <div class="current-weather">
+                    <i class="ri-sun-fill"></i>
+                    <span class="head">29.18°C</span>
+                    <span class="sub-head">Clear sky</span>
+                </div>
+                <div class="wind-info">
+                    <div><i class="ri-windy-line"></i> <span class="head">18 km/h</span><span class="sub-head">wind speed</span></div>
+                    <div><i class="ri-arrow-right-double-line"></i> <span class="head">0%</span><span class="sub-head">wind direction</span></div>
+                </div>
+                <div class="elevation">
+                    <span class="head">17m </span class="sub-head"><span>Elevation</span>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- JS linked -->
+    <script src="script.js"></script>
+</body>
+</html>
