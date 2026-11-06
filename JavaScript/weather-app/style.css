@@ -76,10 +76,11 @@ nav {
     background: white;
     border: 1px solid lightgray;
     border-radius: 2em;
+    padding: 0.5em;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 3em 1fr auto 3em;
-    gap: 0.5em;
+    gap: 1em;
 
     div {
       display: flex;
@@ -95,11 +96,12 @@ nav {
 
     .current-weather {
       flex-direction: column;
+      border-bottom: 1px solid lightgray;
 
       i {
         font-size: 3.5em;
         font-weight: bold;
-        color: lightblue;
+        color: orange;
       }
 
       .head {
@@ -117,10 +119,19 @@ nav {
     .wind-info {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 0;
     }
 
     .wind-info > div {
       flex-direction: column;
+
+      &:nth-child(1) {
+        border-right: 1px solid lightgray;
+      }
+
+      &:nth-child(2) {
+        border-left: 1px solid lightgray;
+      }
 
       i {
         font-size: 2em;
