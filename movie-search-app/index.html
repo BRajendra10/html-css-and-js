@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search App - Home Page</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/movieCards.css">
+
+    <!-- remixicon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar" id="navbar">
+            <!-- logo -->
+            <div class="logo">
+                <div class="icon">
+                    <i class="ri-clapperboard-line"></i>
+                </div>
+                <div class="heading">
+                    <h1>Cine<span>Scope</span></h1>
+                    <span>CINEMA INDEX</span>
+                </div>
+            </div>
+
+            <!-- navigation -->
+            <nav class="navigation">
+                <a class="active" href="./index.html">Home</a>
+                <a href="./pages/movies.html">Movies</a>
+                <a href="#">TV Shows</a>
+            </nav>
+
+            <!-- navbar actions -->
+            <div class="navbar-actions">
+                <div class="notification">
+                    <i class="ri-notification-4-line"></i>
+                    <span class="dot"></span>
+                </div>
+                <div class="user">
+                    <i class="ri-user-3-line"></i>
+                </div>
+
+                <button class="menu-btn">
+                    <i class="ri-menu-line"></i>
+                </button>
+                 <button class="register-btn">Register</button> 
+            </div>
+        </div>
+        <div class="hero-section">
+            <div class="img-container">
+                <img src="./assets/hero-bg-img.jpg" alt="hero image">
+            </div>
+            <div class="hero-content">
+                <div class="content">
+                    <div class="badges">
+                        <span class="badge special">
+                            SPOTLIGHT PREMERE
+                        </span>
+                        <span class="badge">
+                            IMAX 70MM
+                        </span>
+                        <span class="badge">
+                            PG-13
+                        </span>
+                    </div>
+                    <h2 class="title">Dune: Part Two</h2>
+                    <div class="infos">
+                        <p class="ratings">
+                            <i class="ri-star-fill"></i> 8.6<span>/10 (2,410 votes)</span>
+                        </p>
+                        <span class="info">
+                            <i class="ri-time-line"></i> 2h 46m
+                        </span>
+                        <span class="info">March 11, 2024</span>
+                        <span class="info">Sci-Fi Adventure Action</span>
+                    </div>
+                    <p class="overview">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit hic natus perferendis magnam voluptatum in, qui facere voluptatibus provident minus dolor iusto, soluta amet enim veritatis molestias nam neque deserunt.
+                    </p>
+                    <div class="actions">
+                        <button class="btn action-btn">
+                            <i class="ri-play-fill"></i>
+                            <a href="#">Watch Official Traller</a>
+                        </button>
+                        <button class="btn">
+                            <i class="ri-heart-line"></i>
+                            <a href="#">Watchlist</a>
+                        </button>
+                        <button class="btn">
+                            <i class="ri-heart-line"></i>
+                            <a href="#">Full Details</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="popular-movies-section">
+            <div class="section-header">
+                <div class="head">
+                    <span>
+                        <h3 class="heading">Trending & Popular Movies</h3>
+                        <p class="sub-heading">Global box-office momentum updated every 60 minute via TMDB</p>
+                    </span>
+                </div>
+                <span class="explore-all">
+                    <a href="./pages/movies.html">Explore All(2,410)</a>
+                    <i class="ri-arrow-right-s-line"></i>
+                </span>
+            </div>
+            <div class="section-content" id="popular-movies">
+                <!-- movie cards -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div style="grid-area: footer-head;" class="footer-head">
+            <div class="logo">
+                <div class="icon">
+                    <i class="ri-clapperboard-line"></i>
+                </div>
+                <div class="heading">
+                    <h1>Cine<span>Scope</span></h1>
+                    <span>CINEMA INDEX</span>
+                </div>
+            </div>
+            <p>Atmospheric cinematic curation powered by the movie database API. <br>Real-time box office indexing,
+                trailer stream sync. and telemetry tracking.</p>
+        </div>
+
+        <nav style="grid-area: footer-nav;" class="footer-nav">
+            <a class="active" href="#">Discover</a>
+            <a href="#">Top Rated</a>
+            <a href="#">Watchlist</a>
+            <a href="#">API spec</a>
+        </nav>
+
+        <div style="grid-area: footer-foot;" class="footer-foot">
+            <p>This product uses TMDB API but it's not endorced or certified by TMDB. Film data and posters provided by
+                the movie database.</p>
+            <span>
+                <p>&copy; 2026 CineScope Studio</p>
+                <p>Telemetry ID: CS-TMDB-PROD-09</p>
+            </span>
+        </div>
+    </footer>
+
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>
