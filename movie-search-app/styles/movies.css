@@ -1,0 +1,255 @@
+@import url("./style.css");
+
+main {
+	width: 100%;
+	height: fit-content;
+	background-color: var(--black-500);
+	margin: 1rem 0;
+	padding: 1rem;
+}
+
+.movies-section {
+	width: 100%;
+	height: fit-content;
+	display: grid;
+	grid-template-columns: 25rem 1fr;
+	gap: 1rem;
+
+	.filteration {
+		border-radius: 1em;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.movies-content {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+}
+
+.filteration .filter {
+	background-color: var(--black-900);
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+
+	.header {
+		display: flex;
+		gap: 0.5em;
+
+		i {
+			font-size: 1.25em;
+			color: var(--amber-500);
+		}
+
+		h5 {
+			font-size: 1em;
+			font-weight: normal;
+			color: var(--grey-100);
+		}
+	}
+
+	.search > input {
+		width: 100%;
+		height: 3em;
+		outline: none;
+		border: none;
+		background-color: var(--black-500);
+		color: var(--black-100);
+		font-size: 0.8em;
+		padding: 0.5em 1em;
+		margin-top: 0.5em;
+		border-radius: 0.5em;
+	}
+
+	.genres {
+		margin-top: 1em;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em;
+
+		.genre {
+			padding: 0.5em 1em;
+			background-color: var(--black-100);
+			color: var(--amber-100);
+			font-size: 0.75em;
+			border-radius: 1em;
+			cursor: pointer;
+		}
+	}
+
+	.years {
+		margin-top: 1em;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.5em;
+
+		.year {
+			padding: 0.5em 1em;
+			background-color: var(--black-100);
+			color: var(--amber-100);
+			font-size: 0.75em;
+			border-radius: 1em;
+			text-align: center;
+			cursor: pointer;
+		}
+	}
+
+	.ratings {
+		margin-top: 1em;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.5em;
+
+		.rating {
+			padding: 0.5em 1em;
+			background-color: var(--black-100);
+			color: var(--amber-100);
+			font-size: 0.75em;
+			border-radius: 0.5em;
+			text-align: center;
+			cursor: pointer;
+		}
+	}
+}
+
+/* movies */
+.movies-content > .pagination {
+	width: 100%;
+	height: fit-content;
+	background-color: var(--black-900);
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 0.5em;
+	padding: 1em;
+
+	button {
+		border: none;
+		outline: none;
+		background-color: var(--black-500);
+		color: var(--grey-100);
+		font-size: 0.75em;
+		font-weight: 500;
+		padding: 0.5em 1em;
+		border-radius: 0.5em;
+		cursor: pointer;
+	}
+}
+
+/* Movie cards styles */
+div.movies-content > .movies {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+	gap: 1em;
+
+	.movie-card {
+		height: 400px;
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+
+		.img-container {
+			grid-row: 1 / 3;
+			grid-column: 1 / 3;
+
+			overflow: hidden;
+			border-radius: 0.75em;
+		}
+
+		.img-container img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.movie-info {
+			grid-row: 1 / 3;
+			grid-column: 1 / 3;
+		}
+
+		&:hover {
+			transform: translateY(-0.5em);
+			transition: all 0.3s ease-in-out;
+
+			.movie-info h5 {
+				color: var(--amber-500);
+				transition: all 0.3s ease-in-out;
+			}
+		}
+	}
+}
+
+.movie-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.5em;
+
+		.rating {
+			background-color: var(--black-500);
+			color: var(--amber-500);
+			padding: 0.5em;
+			font-size: 0.75em;
+			border-radius: 0.75em;
+		}
+
+		button {
+			border: none;
+			outline: none;
+			width: 2em;
+			height: 2em;
+			font-size: 1.25em;
+			font-weight: 500;
+			border-radius: 50%;
+			background-color: var(--black-500);
+			color: var(--grey-100);
+
+			&:hover {
+				color: var(--red-500);
+			}
+		}
+
+		button.faviorate {
+			background: var(--red-500);
+		}
+	}
+
+	div.info {
+		background: rgba(0, 0, 0, 0.75);
+		padding: 1em;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: 0.5em;
+
+		.title {
+			font-size: 1.5em;
+			color: var(--grey-100);
+		}
+
+		p {
+			font-size: 0.75em;
+			font-weight: 800;
+			color: var(--grey-500);
+			display: flex;
+			gap: 0.75em;
+		}
+
+		p > .geners:before {
+			content: "";
+			width: 0.5em;
+			height: 0.5em;
+			border-radius: 50%;
+			display: inline-block;
+			margin-right: 0.5em;
+			background-color: var(--grey-500);
+		}
+	}
+}

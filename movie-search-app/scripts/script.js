@@ -7,17 +7,58 @@ const options = {
     }
 };
 
+const search_input = document.querySelector('#search');
+const prev_btn = document.querySelector('#prev');
+const next_btn = document.querySelector('#next');
+const page_el = document.querySelector('#page');
+
 let movies = [];
+let page = 1;
+let search_query = "";
 
 ; (async () => {
-    const movie_ids = await get_movie_list();
+    const movie_ids = await get_movie_list(page);
     const movie_list = await Promise.all(movie_ids.map(id => get_movie_details(id)))
     await render_movies(movie_list);
 })();
 
-async function get_movie_list() {
+search_input.addEventListener('input', (e) => {
+    search_query = e.target.value.trim().toLowerCase();
+
+    const filtered_movies = movies.filter(movie =>
+        movie.Title.toLowerCase().includes(search_query)
+    );
+
+    render_movies(filtered_movies);
+});
+
+prev_btn.addEventListener('click', async () => {
+    if (page <= 1) return;
+    const popular_movies = document.querySelector('#movies');
+    popular_movies.innerHTML = "";
+
+    page--;
+    const movie_ids = await get_movie_list(page);
+    const movie_list = await Promise.all(movie_ids.map(id => get_movie_details(id)))
+    await render_movies(movie_list);
+    page_el.innerText = page;
+});
+
+next_btn.addEventListener('click', async () => {
+    const popular_movies = document.querySelector('#movies');
+    popular_movies.innerHTML = "";
+
+    page++;
+    const movie_ids = await get_movie_list(page);
+    const movie_list = await Promise.all(movie_ids.map(id => get_movie_details(id)))
+    await render_movies(movie_list);
+
+    page_el.innerText = page;
+});
+
+async function get_movie_list(page) {
     try {
-        const res = await fetch(`https://api.trakt.tv/movies/popular?ratings=80-100&page=1&limit=6`, options);
+        const res = await fetch(`https://api.trakt.tv/movies/popular?ratings=80-100&page=${page}&limit=12`, options);
         const data = await res.json();
 
         return data.map(movie => movie.ids.imdb);
@@ -31,6 +72,7 @@ async function get_movie_details(id) {
     try {
         const res = await fetch(`https://www.omdbapi.com/?apikey=5416736c&i=${id}&plot=full`);
         const data = await res.json();
+        console.log(data)
         return data
     } catch (err) {
         console.log(`Error: ${err.message}`);
@@ -69,13 +111,32 @@ async function render_movie(title, year, geners, poster, rating) {
     return aside_eli;
 }
 
+// async function search_movies(query = "") {
+
+//     try {
+//         const res = await fetch(`https://api.trakt.tv/search/movie?query=${query}&page=1&limit=12`, options);
+
+//         if (!res.ok) {
+//             throw new Error(`Trakt Error: ${res.status}`);
+//         }
+
+//         const data = await res.json();
+
+//         const movie_ids = data.map(item => item.movie.ids.imdb);
+//         const movie_list = await Promise.all(movie_ids.map(id => get_movie_details(id)))
+
+//         await render_movies(movie_list);
+//     } catch (err) {
+//         console.error("Search error:", err);
+//         console.log(err);
+//     }
+// }
 
 function render_movies(movies) {
-    const popular_movies = document.querySelector('#popular-movies');
+    const popular_movies = document.querySelector('#movies');
 
     movies.forEach(movie => {
         const { Title, Year, Genre, Poster, imdbRating } = movie;
-        console.log(movie);
         render_movie(Title, Year, Genre, Poster, imdbRating).then(aside_el => {
             popular_movies.appendChild(aside_el);
         })

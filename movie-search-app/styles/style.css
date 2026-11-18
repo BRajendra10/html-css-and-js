@@ -25,24 +25,6 @@
 	--grey-100: #ffffff;
 	--grey-500: #b5b5b5;
 	--grey-900: #858585;
-
-	/* EM Sizes */
-	--em-0: 0em;
-	--em-1: 0.5em;
-	--em-2: 0.8em;
-	--em-3: 1em;
-	--em-4: 1.5em;
-	--em-5: 2em;
-	--em-6: 3em;
-
-	/* REM Sizes */
-	--rem-0: 0rem;
-	--rem-1: 0.5rem;
-	--rem-2: 0.8rem;
-	--rem-3: 1rem;
-	--rem-4: 1.5rem;
-	--rem-5: 2rem;
-	--rem-6: 3rem;
 }
 
 * {
@@ -211,7 +193,7 @@ header {
 }
 
 /* section */
-section {
+.section {
 	width: 100%;
 	height: fit-content;
 	padding: 2rem;
