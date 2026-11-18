@@ -122,8 +122,9 @@ function render_movies(movies) {
     const popular_movies = document.querySelector('#movies');
 
     movies.forEach((movie, index) => {
-        const { Title, Year, Genre, Poster, imdbRating } = movie;
-        render_movie(index,Title, Year, Genre, Poster, imdbRating).then(aside_el => {
+        const { imdbID, Title, Year, Genre, Poster, imdbRating } = movie;
+        
+        render_movie(imdbID,Title, Year, Genre, Poster, imdbRating).then(aside_el => {
             popular_movies.appendChild(aside_el);
         })
     })

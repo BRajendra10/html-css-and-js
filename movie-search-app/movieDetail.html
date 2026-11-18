@@ -2,95 +2,192 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Movie Search App - Home Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search App - Home Page</title>
 
-	<!-- styles -->
-	<link rel="stylesheet" href="./styles/style.css" />
+    <!-- styles -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/movieDetail.css" />
 
-	<!-- remixicon -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
-		integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- remixicon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <header>
-		<div class="navbar" id="navbar">
-			<!-- logo -->
-			<div class="logo">
-				<div class="icon">
-					<i class="ri-clapperboard-line"></i>
-				</div>
-				<div class="heading">
-					<h1>Cine<span>Scope</span></h1>
-					<span>CINEMA INDEX</span>
-				</div>
-			</div>
+        <div class="navbar" id="navbar">
+            <!-- logo -->
+            <div class="logo">
+                <div class="icon">
+                    <i class="ri-clapperboard-line"></i>
+                </div>
+                <div class="heading">
+                    <h1>Cine<span>Scope</span></h1>
+                    <span>CINEMA INDEX</span>
+                </div>
+            </div>
 
-			<!-- navigation -->
-			<nav class="navigation">
-				<a class="active" href="./index.html">Home</a>
-				<a href="./pages/movies.html">Movies</a>
-				<a href="#">TV Shows</a>
-			</nav>
+            <!-- navigation -->
+            <nav class="navigation">
+                <a class="active" href="./index.html">Home</a>
+                <a href="./pages/movies.html">Movies</a>
+                <a href="#">TV Shows</a>
+            </nav>
 
-			<!-- navbar actions -->
-			<div class="navbar-actions">
-				<div class="notification">
-					<i class="ri-notification-4-line"></i>
-					<span class="dot"></span>
-				</div>
-				<div class="user">
-					<i class="ri-user-3-line"></i>
-				</div>
+            <!-- navbar actions -->
+            <div class="navbar-actions">
+                <div class="notification">
+                    <i class="ri-notification-4-line"></i>
+                    <span class="dot"></span>
+                </div>
+                <div class="user">
+                    <i class="ri-user-3-line"></i>
+                </div>
 
-				<button class="menu-btn">
-					<i class="ri-menu-line"></i>
-				</button>
-				<button class="register-btn">Register</button>
-			</div>
-		</div>
-	</header>
+                <button class="menu-btn">
+                    <i class="ri-menu-line"></i>
+                </button>
+                <button class="register-btn">Register</button>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="movie-detail-page">
+
+        <!-- Movie details -->
+        <section class="movie-detail">
+            <div class="movie-backdrop"></div>
+
+            <div class="movie-detail-content">
+                <div class="movie-poster">
+                    <img src="" alt="Movie poster">
+                </div>
+
+                <div class="movie-info">
+                    <span class="movie-label">MOVIE PROFILE</span>
+
+                    <h1 class="movie-title">Movie Title</h1>
+
+                    <div class="movie-meta">
+                        <span>2026</span>
+                        <span>PG-13</span>
+                        <span>127 min</span>
+                        <span>Action, Drama</span>
+                    </div>
+
+                    <div class="movie-rating">
+                        <i class="ri-star-fill"></i>
+                        <strong>8.5</strong>
+                        <span>/ 10 IMDb</span>
+                    </div>
+
+                    <p class="movie-plot">
+                        Movie plot goes here. A detailed overview of the
+                        story and its central characters.
+                    </p>
+
+                    <div class="movie-credits">
+                        <div>
+                            <span>DIRECTOR</span>
+                            <p>Director Name</p>
+                        </div>
+
+                        <div>
+                            <span>WRITER</span>
+                            <p>Writer Name</p>
+                        </div>
+
+                        <div>
+                            <span>CAST</span>
+                            <p>Actor One, Actor Two, Actor Three</p>
+                        </div>
+                    </div>
+
+                    <div class="movie-extra">
+                        <div>
+                            <span>RELEASED</span>
+                            <p>24 Apr 2026</p>
+                        </div>
+
+                        <div>
+                            <span>LANGUAGE</span>
+                            <p>English</p>
+                        </div>
+
+                        <div>
+                            <span>COUNTRY</span>
+                            <p>United States</p>
+                        </div>
+
+                        <div>
+                            <span>AWARDS</span>
+                            <p>Movie awards information</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related movies -->
+        <!-- <section class="related-movies">
+        <div class="section-heading">
+            <div>
+                <span>EXPLORE MORE</span>
+                <h2>Related Movies</h2>
+            </div>
+        </div>
+
+        <div class="related-movies-content">
+            
+        </div>
+    </section> -->
+
+    </main>
+
 
     <footer>
-		<div style="grid-area: footer-head" class="footer-head">
-			<div class="logo">
-				<div class="icon">
-					<i class="ri-clapperboard-line"></i>
-				</div>
-				<div class="heading">
-					<h1>Cine<span>Scope</span></h1>
-					<span>CINEMA INDEX</span>
-				</div>
-			</div>
-			<p>
-				Atmospheric cinematic curation powered by the movie database
-				API. <br />Real-time box office indexing, trailer stream
-				sync. and telemetry tracking.
-			</p>
-		</div>
+        <div style="grid-area: footer-head" class="footer-head">
+            <div class="logo">
+                <div class="icon">
+                    <i class="ri-clapperboard-line"></i>
+                </div>
+                <div class="heading">
+                    <h1>Cine<span>Scope</span></h1>
+                    <span>CINEMA INDEX</span>
+                </div>
+            </div>
+            <p>
+                Atmospheric cinematic curation powered by the movie database
+                API. <br />Real-time box office indexing, trailer stream
+                sync. and telemetry tracking.
+            </p>
+        </div>
 
-		<nav style="grid-area: footer-nav" class="footer-nav">
-			<a class="active" href="#">Discover</a>
-			<a href="#">Top Rated</a>
-			<a href="#">Watchlist</a>
-			<a href="#">API spec</a>
-		</nav>
+        <nav style="grid-area: footer-nav" class="footer-nav">
+            <a class="active" href="#">Discover</a>
+            <a href="#">Top Rated</a>
+            <a href="#">Watchlist</a>
+            <a href="#">API spec</a>
+        </nav>
 
-		<div style="grid-area: footer-foot" class="footer-foot">
-			<p>
-				This product uses TMDB API but it's not endorced or
-				certified by TMDB. Film data and posters provided by the
-				movie database.
-			</p>
-			<span>
-				<p>&copy; 2026 CineScope Studio</p>
-				<p>Telemetry ID: CS-TMDB-PROD-09</p>
-			</span>
-		</div>
-	</footer>
+        <div style="grid-area: footer-foot" class="footer-foot">
+            <p>
+                This product uses TMDB API but it's not endorced or
+                certified by TMDB. Film data and posters provided by the
+                movie database.
+            </p>
+            <span>
+                <p>&copy; 2026 CineScope Studio</p>
+                <p>Telemetry ID: CS-TMDB-PROD-09</p>
+            </span>
+        </div>
+    </footer>
+
+    <script src="./scripts/movieDetails.js"></script>
 </body>
 
-</html>
+</html>00
