@@ -251,5 +251,17 @@ div.movies-content > .movies {
 			margin-right: 0.5em;
 			background-color: var(--grey-500);
 		}
+
+		.btn {
+			width: 100%;
+			height: fit-content;
+			padding: 0.75em;
+			background-color: var(--amber-500);
+			color: var(--grey-100);
+			font-size: 0.75em;
+			font-weight: 500;
+			border-radius: 0.5em;
+			cursor: pointer;
+		}
 	}
 }

@@ -80,7 +80,7 @@ async function get_movie_details(id) {
     }
 }
 
-async function render_movie(title, year, geners, poster, rating) {
+async function render_movie(id, title, year, geners, poster, rating) {
     const img_container = `
     <div class="img-container">
         <img src="${poster}" alt="${title} poster" />
@@ -100,6 +100,8 @@ async function render_movie(title, year, geners, poster, rating) {
                     <span>${year}</span> 
                     <span class="geners">${geners}</span> 
                 </p>
+
+                <button class="btn">show more</button>
             </div>
         </div>
     `
@@ -108,36 +110,20 @@ async function render_movie(title, year, geners, poster, rating) {
     aside_eli.classList.add('movie-card');
     aside_eli.innerHTML = img_container + movie_info;
 
+    const btn = aside_eli.querySelector('.btn');
+    btn.addEventListener('click', () => {
+        window.location.href = `./movieDetail.html?id=${id}`;
+    })
+
     return aside_eli;
 }
-
-// async function search_movies(query = "") {
-
-//     try {
-//         const res = await fetch(`https://api.trakt.tv/search/movie?query=${query}&page=1&limit=12`, options);
-
-//         if (!res.ok) {
-//             throw new Error(`Trakt Error: ${res.status}`);
-//         }
-
-//         const data = await res.json();
-
-//         const movie_ids = data.map(item => item.movie.ids.imdb);
-//         const movie_list = await Promise.all(movie_ids.map(id => get_movie_details(id)))
-
-//         await render_movies(movie_list);
-//     } catch (err) {
-//         console.error("Search error:", err);
-//         console.log(err);
-//     }
-// }
 
 function render_movies(movies) {
     const popular_movies = document.querySelector('#movies');
 
-    movies.forEach(movie => {
+    movies.forEach((movie, index) => {
         const { Title, Year, Genre, Poster, imdbRating } = movie;
-        render_movie(Title, Year, Genre, Poster, imdbRating).then(aside_el => {
+        render_movie(index,Title, Year, Genre, Poster, imdbRating).then(aside_el => {
             popular_movies.appendChild(aside_el);
         })
     })
