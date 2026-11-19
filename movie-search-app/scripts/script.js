@@ -18,15 +18,19 @@ let search_query = "";
 
 ; (async () => {
     const movie_ids = await get_movie_list(page);
-    const movie_list = await Promise.all(movie_ids.map(id => get_movie_details(id)))
+    const movie_list = await Promise.all(movie_ids.map(id => get_movie_details(id)));
+    movies = movie_list;
     await render_movies(movie_list);
 })();
 
 search_input.addEventListener('input', (e) => {
+    const popular_movies = document.querySelector('#movies');
+    popular_movies.innerHTML = "";
+
     search_query = e.target.value.trim().toLowerCase();
 
-    const filtered_movies = movies.filter(movie =>
-        movie.Title.toLowerCase().includes(search_query)
+    const filtered_movies = movies.filter(movie => 
+        movie.Title && movie.Title.toLowerCase().includes(search_query)
     );
 
     render_movies(filtered_movies);

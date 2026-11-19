@@ -57,7 +57,7 @@ main {
 		outline: none;
 		border: none;
 		background-color: var(--black-500);
-		color: var(--black-100);
+		color: var(--grey-100);
 		font-size: 0.8em;
 		padding: 0.5em 1em;
 		margin-top: 0.5em;
@@ -263,5 +263,19 @@ div.movies-content > .movies {
 			border-radius: 0.5em;
 			cursor: pointer;
 		}
+	}
+}
+
+@media (max-width: 768px) {
+	.movies-section {
+		grid-template-columns: 1fr;
+	}
+
+	.filteration > .filter {
+		display: none;
+	}
+
+	.filteration > .searching {
+		display: block;
 	}
 }
